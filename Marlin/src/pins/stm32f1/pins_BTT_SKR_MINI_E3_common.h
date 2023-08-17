@@ -97,8 +97,8 @@
 //
 // Heaters / Fans
 //
-#define HEATER_0_PIN                        PC8   // "HE"
-#define HEATER_BED_PIN                      PC9   // "HB"
+//#define HEATER_0_PIN                        PC8   // "HE"
+//#define HEATER_BED_PIN                      PC9   // "HB"
 
 #ifndef FAN_PIN
   #define FAN_PIN                           PA8   // "FAN0"
