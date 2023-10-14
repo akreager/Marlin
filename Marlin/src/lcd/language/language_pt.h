@@ -29,7 +29,7 @@
  * See also https://marlinfw.org/docs/development/lcd_language.html
  */
 
- #define DISPLAY_CHARSET_ISO10646_1
+#define DISPLAY_CHARSET_ISO10646_1
 
 namespace Language_pt {
   using namespace Language_en; // Inherit undefined strings from English
@@ -78,6 +78,7 @@ namespace Language_pt {
   LSTR MSG_MOVE_X                         = _UxGT("Mover X");
   LSTR MSG_MOVE_Y                         = _UxGT("Mover Y");
   LSTR MSG_MOVE_Z                         = _UxGT("Mover Z");
+  LSTR MSG_MOVE_N                         = _UxGT("Mover @");
   LSTR MSG_MOVE_E                         = _UxGT("Mover Extrusor");
   LSTR MSG_MOVE_EN                        = _UxGT("Mover Extrusor *");
   LSTR MSG_MOVE_N_MM                      = _UxGT("Mover $mm");

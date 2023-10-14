@@ -27,7 +27,7 @@
 #include "../gcode.h"
 #include "../../module/delta.h"
 #include "../../module/motion.h"
-#include "../../module/stepper.h"
+#include "../../module/planner.h"
 #include "../../module/endstops.h"
 #include "../../lcd/marlinui.h"
 
@@ -464,8 +464,8 @@ void GcodeSuite::G33() {
   SERIAL_ECHOLNPGM("G33 Auto Calibrate");
 
   // Report settings
-  PGM_P const checkingac = PSTR("Checking... AC");
-  SERIAL_ECHOPGM_P(checkingac);
+  FSTR_P const checkingac = F("Checking... AC");
+  SERIAL_ECHOF(checkingac);
   SERIAL_ECHOPGM(" at radius:", dcr);
   if (verbose_level == 0) SERIAL_ECHOPGM(" (DRY-RUN)");
   SERIAL_EOL();

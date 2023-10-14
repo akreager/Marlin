@@ -52,7 +52,7 @@ void _man_probe_pt(const xy_pos_t &xy) {
     ui.wait_for_move = false;
     ui.synchronize();
     ui.manual_move.menu_scale = _MAX(PROBE_MANUALLY_STEP, MIN_STEPS_PER_SEGMENT / planner.settings.axis_steps_per_mm[0]); // Use first axis as for delta XYZ should always match
-    ui.goto_screen(lcd_move_z);
+    ui.goto_screen([]{ lcd_move_axis(Z_AXIS); });
   }
 }
 
@@ -68,8 +68,8 @@ void _man_probe_pt(const xy_pos_t &xy) {
   float lcd_probe_pt(const xy_pos_t &xy) {
     _man_probe_pt(xy);
     ui.defer_status_screen();
-    TERN_(HOST_PROMPT_SUPPORT, hostui.prompt_do(PROMPT_USER_CONTINUE, F("Delta Calibration in progress"), FPSTR(CONTINUE_STR)));
-    TERN_(EXTENSIBLE_UI, ExtUI::onUserConfirmRequired(F("Delta Calibration in progress")));
+    TERN_(HOST_PROMPT_SUPPORT, hostui.continue_prompt(GET_TEXT_F(MSG_DELTA_CALIBRATION_IN_PROGRESS)));
+    TERN_(EXTENSIBLE_UI, ExtUI::onUserConfirmRequired(GET_TEXT_F(MSG_DELTA_CALIBRATION_IN_PROGRESS)));
     TERN_(HAS_RESUME_CONTINUE, wait_for_user_response());
     ui.goto_previous_screen_no_defer();
     return current_position.z;
