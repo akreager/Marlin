@@ -224,10 +224,10 @@
   //#define HEATER_CHAMBER_INVERTING false
   //#define FAN1_PIN                   -1   // Remove the fan signal on pin P2_04 (example: SKR 1.4 Turbo HE1 plug)
 
-  //#define CHAMBER_FAN               // Enable a fan on the chamber
+  #define CHAMBER_FAN               // Enable a fan on the chamber
   #if ENABLED(CHAMBER_FAN)
-    //#define CHAMBER_FAN_INDEX   2   // Index of a fan to repurpose as the chamber fan. (Default: first unused fan)
-    #define CHAMBER_FAN_MODE      2   // Fan control mode: 0=Static; 1=Linear increase when temp is higher than target; 2=V-shaped curve; 3=similar to 1 but fan is always on.
+    #define CHAMBER_FAN_INDEX     0   // Index of a fan to repurpose as the chamber fan. (Default: first unused fan)
+    #define CHAMBER_FAN_MODE      1   // Fan control mode: 0=Static; 1=Linear increase when temp is higher than target; 2=V-shaped curve; 3=similar to 1 but fan is always on.
     #if CHAMBER_FAN_MODE == 0
       #define CHAMBER_FAN_BASE  255   // Chamber fan PWM (0-255)
     #elif CHAMBER_FAN_MODE == 1
@@ -639,7 +639,7 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#define E0_AUTO_FAN_PIN 0
+#define E0_AUTO_FAN_PIN -1
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
@@ -1833,7 +1833,7 @@
   //#define STATUS_CUTTER_ANIM        // Use a second bitmap to indicate spindle / laser active
   //#define STATUS_COOLER_ANIM        // Use a second bitmap to indicate laser cooling
   //#define STATUS_FLOWMETER_ANIM     // Use multiple bitmaps to indicate coolant flow
-  #define STATUS_ALT_BED_BITMAP     // Use the alternative bed bitmap
+  //#define STATUS_ALT_BED_BITMAP     // Use the alternative bed bitmap
   //#define STATUS_ALT_FAN_BITMAP     // Use the alternative fan bitmap
   //#define STATUS_FAN_FRAMES 3       // :[0,1,2,3,4] Number of fan animation frames
   //#define STATUS_HEAT_PERCENT       // Show heating in a progress bar
